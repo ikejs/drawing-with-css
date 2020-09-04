@@ -1,0 +1,54 @@
+@mixin animationSettings {
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  animation: colorChange 30s infinite;
+  @include animationSettings()
+}
+
+.ball {
+  position: absolute;
+  width: 20em;
+  height: 20em;
+  background: radial-gradient(circle at 100px 100px, #5cabff, #000);
+  border-radius: 50%;
+  align-self: center;
+  animation: bounce 0.5s cubic-bezier(.5, 0.05, 1, .5);
+  @include animationSettings()
+}
+
+.shadow {
+  z-index: -1;
+  position: absolute;
+  bottom: 2em;
+  width: 20em;
+  height: 5em;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  align-self: center;
+  animation: shadow 0.5s cubic-bezier(.5, 0.05, 1, .5);
+  @include animationSettings()
+}
+
+@keyframes colorChange {
+  0% { background-color: hsl(0, 100%, 50%) }
+  50% { background-color: hsl(180, 100%, 50%) }
+  100% { background-color: hsl(360, 100%, 50%) }
+}
+
+@keyframes bounce {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(0, 100%, 0); }
+}
+
+@keyframes shadow {
+  to { width: 15em; height: 3em; opacity: 0.3 }
+  from { width: 10em; height: 1em; opacity: 0.1 }
+
+}

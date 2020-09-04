@@ -1,0 +1,69 @@
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  animation: colorChange 30s infinite;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+.ball {
+  position: absolute;
+  width: 20em;
+  height: 20em;
+  background: radial-gradient(circle at 100px 100px, #5cabff, #000);
+  border-radius: 50%;
+  align-self: center;
+  animation: bounce 0.5s cubic-bezier(0.5, 0.05, 1, 0.5);
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+.shadow {
+  z-index: -1;
+  position: absolute;
+  bottom: 2em;
+  width: 20em;
+  height: 5em;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  align-self: center;
+  animation: shadow 0.5s cubic-bezier(0.5, 0.05, 1, 0.5);
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes colorChange {
+  0% {
+    background-color: red;
+  }
+  50% {
+    background-color: aqua;
+  }
+  100% {
+    background-color: red;
+  }
+}
+@keyframes bounce {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+@keyframes shadow {
+  to {
+    width: 15em;
+    height: 3em;
+    opacity: 0.3;
+  }
+  from {
+    width: 10em;
+    height: 1em;
+    opacity: 0.1;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
